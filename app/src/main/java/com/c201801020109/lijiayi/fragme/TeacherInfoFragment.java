@@ -32,7 +32,7 @@ public class TeacherInfoFragment extends Fragment {
         final Context context = getActivity().getApplicationContext();
         SharedPreferences share = context.getSharedPreferences("teacher_info", MODE_PRIVATE);
         String teacher_name = share.getString("teacher_name", "w");
-        String teacher_pass = share.getString("teacher_pass", "w");
+        String teacher_pass = share.getString("teacher_user_name", "w");
         String teacher_register_time = share.getString("teacher_register_time", "w");
         String teacher_login_time = share.getString("teacher_login_time", "w");
 
