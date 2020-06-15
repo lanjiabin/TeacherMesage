@@ -19,6 +19,7 @@ import com.c201801020109.lijiayi.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
+//显示管理者个人信息
 public class TeacherInfoFragment extends Fragment {
     @Nullable
     @Override

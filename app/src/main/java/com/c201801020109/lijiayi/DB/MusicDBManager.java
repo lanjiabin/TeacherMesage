@@ -8,6 +8,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//数据库管理
 public class MusicDBManager {
     DBHelper mMusicDBHelper;
     SQLiteDatabase mSQLiteDatabase;
@@ -17,6 +18,7 @@ public class MusicDBManager {
         mSQLiteDatabase = mMusicDBHelper.getReadableDatabase();
     }
 
+    //增加，删除，修改数据库
     public boolean updateSQLite(String sql, Object[] bindArgs) {
         boolean isSuccess = false;
         try {
@@ -47,6 +49,7 @@ public class MusicDBManager {
         return isSuccess;
     }
 
+    //查询数据库
     public ArrayList<HashMap<String, String>> querySQLite(String sql, String[] bindArgs) {
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         Cursor cursor = mSQLiteDatabase.rawQuery(sql, bindArgs);

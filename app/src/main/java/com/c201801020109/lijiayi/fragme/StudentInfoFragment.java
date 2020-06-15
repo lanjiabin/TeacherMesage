@@ -29,15 +29,17 @@ import com.c201801020109.lijiayi.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//管理学生的Fragment
 public class StudentInfoFragment extends Fragment {
     View mView;
-    private ArrayList<HashMap<String, String>> mStudentList;
-    private Context mContext;
-    private ListView mStudentListView;
-    private Button mAllStudentBtn, mAddStudentBtn, mOneStudentBtn;
-    private FrameLayout mAllStudentFrameLayout, mAddStudentFrameLayout, mOneStudentFrameLayout;
-    private EditText mIdEt, mNameEt, mAgeEt, mGenderEt, mPoliticsEt, mPlaceEt, mDepartmentEt;
-    private Button mAddBtnEt, mUpdateBtnEt;
+    private ArrayList<HashMap<String, String>> mStudentList; //学生的全部信息
+    private Context mContext; //上下文
+    private ListView mStudentListView; //展示学生的ListView
+    private Button mAllStudentBtn, mAddStudentBtn, mOneStudentBtn; //左边的三个按钮
+    private FrameLayout mAllStudentFrameLayout, mAddStudentFrameLayout, mOneStudentFrameLayout; //左边的三个按钮对应的三个布局
+    private EditText mIdEt, mNameEt, mAgeEt, mGenderEt, mPoliticsEt, mPlaceEt, mDepartmentEt; //添加学生信息
+    private Button mAddBtnEt, mUpdateBtnEt; //添加学生按钮  更新学生按钮
+    //更新学生信息的EditText
     private EditText mIdEtUpdate, mNameEtUpdate, mAgeEtUpdate, mGenderEtUpdate, mPoliticsEtUpdate, mPlaceEtUpdate, mDepartmentEtUpdate;
 
 
@@ -50,8 +52,10 @@ public class StudentInfoFragment extends Fragment {
         return mView;
     }
 
+    //初始化布局
     public void initView() {
         mContext = getActivity().getApplicationContext();
+        //查询全部学生信息
         mStudentList = StudentDBService.getInstance().queryAllStudents(mContext);
         mStudentListView = mView.findViewById(R.id.student_list);
         mAllStudentBtn = mView.findViewById(R.id.all_student_btn);
@@ -60,7 +64,7 @@ public class StudentInfoFragment extends Fragment {
         mAllStudentFrameLayout = mView.findViewById(R.id.all_student);
         mAddStudentFrameLayout = mView.findViewById(R.id.add_student);
         mOneStudentFrameLayout = mView.findViewById(R.id.one_student);
-        setListViewAdapter();
+        setListViewAdapter(); //显示学生信息到ListView上
         mIdEt = mView.findViewById(R.id.id_et);
         mNameEt = mView.findViewById(R.id.name_et);
         mAgeEt = mView.findViewById(R.id.age_et);
@@ -82,16 +86,18 @@ public class StudentInfoFragment extends Fragment {
         mUpdateBtnEt = mView.findViewById(R.id.update_btn_et);
     }
 
-    //添加一个学生，录入数据库
+    //添加一个学生，录入到数据库
     public void addStudent() {
         String id = mIdEt.getText().toString();
 
+        //学号不能相同
         for (int i = 0; i < mStudentList.size(); i++) {
             if (id.equals(mStudentList.get(i).get("id"))) {
                 Toast.makeText(mContext, "已经存在相同学号", Toast.LENGTH_SHORT).show();
                 return;
             }
         }
+        //得到用户输入的信息
         String name = mNameEt.getText().toString();
         String age = mAgeEt.getText().toString();
         String gender = mGenderEt.getText().toString();
@@ -107,6 +113,7 @@ public class StudentInfoFragment extends Fragment {
                 && !department.equals("")) {
             StudentDBService.getInstance().addStudent(mContext, id, name, age, gender, politics, place, department);
             Toast.makeText(mContext, "添加学生成功！", Toast.LENGTH_SHORT).show();
+            //添加信息后，清空输入框信息
             mIdEt.setText("");
             mNameEt.setText("");
             mAgeEt.setText("");
@@ -119,6 +126,7 @@ public class StudentInfoFragment extends Fragment {
         }
     }
 
+    //显示数据到ListView上
     public void setListViewAdapter() {
         mStudentList = StudentDBService.getInstance().queryAllStudents(mContext);
         SimpleAdapter simpleAdapter = new SimpleAdapter(
@@ -130,7 +138,9 @@ public class StudentInfoFragment extends Fragment {
         mStudentListView.setAdapter(simpleAdapter);
     }
 
+    //所有的点击事件
     public void onClick() {
+        //点击一个，就隐藏其它的布局
         mAllStudentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,12 +167,14 @@ public class StudentInfoFragment extends Fragment {
             }
         });
 
+        //添加一个学生按钮
         mAddBtnEt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 addStudent();
             }
         });
+        //ListView 的item点击事件，把内容显示到另一个位置，并显示该内容
         mStudentListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -184,6 +196,7 @@ public class StudentInfoFragment extends Fragment {
                 mOneStudentBtn.setText(studentList.get(0).get("name"));
             }
         });
+        //更新这个学生信息的点击事件
         mUpdateBtnEt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -199,6 +212,7 @@ public class StudentInfoFragment extends Fragment {
             }
         });
 
+        //删除一个学生信息
         ((Button)mView.findViewById(R.id.delete_btn_et)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

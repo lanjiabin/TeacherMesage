@@ -1,5 +1,6 @@
 package com.c201801020109.lijiayi.DB;
 
+//学生实体类，这里没用上
 public class Student {
     private String id; //学号
     private String name; //名字

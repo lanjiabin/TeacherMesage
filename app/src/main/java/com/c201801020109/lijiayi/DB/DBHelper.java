@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+//创建数据库
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "studentInfo.db";

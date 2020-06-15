@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+//数据库的具体操作，有mysql语句，采用单例模式
 public class StudentDBService {
     private static StudentDBService studentDBService = null;
 

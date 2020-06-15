@@ -61,23 +61,24 @@ public class LoginActivity extends AppCompatActivity {
 
     //验证用户名和密码
     public void verificationUser() {
-        String userName = mUserNameET.getText().toString();
-        String userPass = mUserPassET.getText().toString();
+        String userName = mUserNameET.getText().toString();//获得用户输入的用户名
+        String userPass = mUserPassET.getText().toString();//获得用户输入的密码
         SharedPreferences share = getSharedPreferences("teacher_info", MODE_PRIVATE);
-        String registerName = share.getString("teacher_name", "w");
-        String registerPass = share.getString("teacher_pass", "w");
+        String registerName = share.getString("teacher_name", "w"); //获得已经注册的用户
+        String registerPass = share.getString("teacher_pass", "w"); //获得已经注册是密码
         if (userName.equals("") && userPass.equals("")) {
             Toast.makeText(mContext, "输入框内容不能有空", Toast.LENGTH_SHORT).show();
             return;
         }
 
+        //判断用户名和密码相等则登陆成功
         if (userName.equals(registerName) && userPass.equals(registerPass)) {
             Toast.makeText(mContext, "登录成功", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(mContext, MainActivity.class);
             startActivity(intent);
             SharedPreferences teacherInfo = getSharedPreferences("teacher_info", MODE_PRIVATE);
             SharedPreferences.Editor editor = teacherInfo.edit();
-            editor.putString("teacher_login_time", getLocalTime());
+            editor.putString("teacher_login_time", getLocalTime()); //更新登陆时间
             editor.apply();
             finish();
         } else {
@@ -93,11 +94,11 @@ public class LoginActivity extends AppCompatActivity {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String registerName = share.getString("teacher_name", "w");
         try {
-            Date d1 = df.parse(getLocalTime());
-            Date d2 = df.parse(share.getString("teacher_login_time", "w"));
-            long diff = d1.getTime() - d2.getTime();
+            Date d1 = df.parse(getLocalTime()); //本地时间
+            Date d2 = df.parse(share.getString("teacher_login_time", "w")); //登陆时间
+            long diff = d1.getTime() - d2.getTime(); //相差时间
             long days = diff / (1000 * 60 * 60 * 24);
-            if (days <= 7) {
+            if (days <= 7) { //不到七天，自动登陆，超过其他，则需要手动登陆
                 Intent intent = new Intent(mContext, MainActivity.class);
                 startActivity(intent);
                 finish();

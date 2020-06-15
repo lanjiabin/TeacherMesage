@@ -26,15 +26,18 @@ public class MainActivity extends AppCompatActivity {
         switchFragment(mStudentInfoFragment).commit();
     }
 
+    //加载布局
     public void initView() {
         mCurrentFragment = new Fragment();
         mStudentBtn = findViewById(R.id.student);
         mInfoBtn = findViewById(R.id.info);
+        //实例化两个Fragment
         mStudentInfoFragment = new StudentInfoFragment();
         mTeacherInfoFragment = new TeacherInfoFragment();
 
     }
 
+    //点击事件
     public void onClick() {
         mStudentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //切换Fragment的逻辑
     private FragmentTransaction switchFragment(Fragment targetFragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (!targetFragment.isAdded()) {
