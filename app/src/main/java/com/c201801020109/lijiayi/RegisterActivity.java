@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
         String registerName = mRegisterName.getText().toString();
         String registerPass = mRegisterPass.getText().toString();
         String registerTeacherName = mRegisterTeacherName.getText().toString();
-        if (registerName.equals("") && registerPass.equals("") && registerTeacherName.equals("")) {
+        if (!registerName.equals("") && !registerPass.equals("") && !registerTeacherName.equals("")) {
             SharedPreferences teacherInfo = getSharedPreferences("teacher_info", MODE_PRIVATE);
             SharedPreferences.Editor editor = teacherInfo.edit();
             editor.putString("teacher_name", registerName);

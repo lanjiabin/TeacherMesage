@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_bright"
                 android:text="所有学生" />
 
             <Button
@@ -28,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_light"
                 android:text="添加学生" />
 
             <Button
@@ -35,7 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="某个学生" />
+                android:background="@android:color/holo_purple"
+                android:text="某个学生"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 
@@ -45,33 +49,30 @@
         android:layout_height="match_parent">
 
         <ListView
+            android:layout_marginTop="15dp"
             android:id="@+id/student_list"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:longClickable="true" />
     </FrameLayout>
 
     <FrameLayout
-        android:visibility="gone"
         android:id="@+id/add_student"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-        <EditText
-            android:id="@+id/add_student_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/add_student" />
     </FrameLayout>
 
     <FrameLayout
-        android:visibility="gone"
         android:id="@+id/one_student"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/one_student_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <include layout="@layout/update_student" />
     </FrameLayout>
 
 

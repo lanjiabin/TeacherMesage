@@ -73,5 +73,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
+        android:background="@android:color/holo_green_light"
         android:text="注册" />
 </LinearLayout>
