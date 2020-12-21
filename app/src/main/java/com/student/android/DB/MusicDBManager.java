@@ -1,9 +1,8 @@
-package com.c201801020109.lijiayi.DB;
+package com.student.android.DB;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;

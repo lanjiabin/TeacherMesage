@@ -1,4 +1,4 @@
-package com.c201801020109.lijiayi.DB;
+package com.student.android.DB;
 
 //学生实体类，这里没用上
 public class Student {

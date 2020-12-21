@@ -1,4 +1,4 @@
-package com.c201801020109.lijiayi.fragme;
+package com.student.android.fragme;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.c201801020109.lijiayi.LoginActivity;
-import com.c201801020109.lijiayi.R;
+import com.c201801020109.android.R;
+import com.student.android.LoginActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 

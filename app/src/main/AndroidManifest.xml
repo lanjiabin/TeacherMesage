@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.c201801020109.lijiayi">
+    package="com.c201801020109.android">
 
     <application
         android:allowBackup="true"
@@ -10,10 +10,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:label="注册"
-            android:name=".RegisterActivity"/>
+            android:name="com.student.android.RegisterActivity"/>
         <activity
             android:label="学生管理"
-            android:name=".LoginActivity">
+            android:name="com.student.android.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:label="主页"
-            android:name=".MainActivity" />
+            android:name="com.student.android.MainActivity" />
     </application>
 
 </manifest>

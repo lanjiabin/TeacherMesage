@@ -1,4 +1,4 @@
-package com.c201801020109.lijiayi.DB;
+package com.student.android.DB;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

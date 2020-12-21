@@ -1,4 +1,4 @@
-package com.c201801020109.lijiayi;
+package com.student.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,10 +7,11 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
-import com.c201801020109.lijiayi.fragme.StudentInfoFragment;
-import com.c201801020109.lijiayi.fragme.TeacherInfoFragment;
+import com.c201801020109.android.R;
+import com.student.android.fragme.StudentInfoFragment;
+import com.student.android.fragme.TeacherInfoFragment;
+
 
 public class MainActivity extends AppCompatActivity {
     private Fragment mCurrentFragment;

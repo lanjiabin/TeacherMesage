@@ -1,14 +1,9 @@
-package com.c201801020109.lijiayi.DB;
+package com.student.android.DB;
 
 import android.content.Context;
-import android.util.Log;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 //数据库的具体操作，有mysql语句，采用单例模式
 public class StudentDBService {

@@ -1,10 +1,9 @@
-package com.c201801020109.lijiayi;
+package com.student.android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.c201801020109.android.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

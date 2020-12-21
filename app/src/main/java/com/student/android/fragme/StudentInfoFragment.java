@@ -1,14 +1,12 @@
-package com.c201801020109.lijiayi.fragme;
+package com.student.android.fragme;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -22,9 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.c201801020109.lijiayi.DB.Student;
-import com.c201801020109.lijiayi.DB.StudentDBService;
-import com.c201801020109.lijiayi.R;
+import com.c201801020109.android.R;
+import com.student.android.DB.StudentDBService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
